@@ -43,10 +43,6 @@ def add_person():
         new_person = Person(id=new_p_id, name=name, email=email, city=city)
         session.add(new_person)
         session.commit()
-        requestType="POST"
-        requestId="add-item"
-        payload=data
-        add_api_hit(request, session , requestType , requestId , payload)
         session.close()
           
         return jsonify(message=f"Data added successfully for "), 201
@@ -77,11 +73,7 @@ def get_person():
         data_l=[]
         for i in data:
             data_l.append({"Person_id":i.id ,"name":i.name , "email":i.email , "city" : i.city})
-        
-        
-        requestId = request.headers.get('RequestId', 'get-item')
-        requestType='GET'
-        add_api_hit(request, session , requestType , requestId )
+    
          
         session.close()   
         return jsonify(data=data_l), 200        
@@ -127,11 +119,6 @@ def update_person(id):
             person.city = city
 
         session.commit()
-
-        requestId = request.headers.get('RequestId', 'update-item')
-        payload=data
-        requestType='PUT'
-        add_api_hit(request, session , requestType , requestId , payload)
         
         session.close()
 
@@ -159,16 +146,8 @@ def delete_person(id):
             return jsonify(error="Person not found"), 404
 
         session.delete(person)
-        session.commit()
-
-        requestId = request.headers.get('RequestId', 'delete-item')
-        payload=""
-        requestType='DELETE'
-        add_api_hit(request, session , requestType , requestId , payload)
-
-        
+        session.commit() 
         session.close()
-
         return jsonify(message=f"Data deleted successfully"), 200
     except Exception as e:
         return jsonify(error=f'{e}'), 500
@@ -179,11 +158,6 @@ def hey():
     try:
         Session = sessionmaker(bind=engine)
         session = Session()
-        requestId = request.headers.get('RequestId', 'get-item')
-        payload=""
-        requestType='GET'
-        add_api_hit(request, session , requestType , requestId , payload)
-  
         return jsonify(message=" hey server is running , happy ^_^ ")
     except Exception as e:
         return jsonify(error=" something wrong -> :{ "), 500

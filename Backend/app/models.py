@@ -20,17 +20,17 @@ class Person(Base):
 
 #api hit database, here all data of any request hit will be saved   
 class Apianalytics(Base):
-    __tablename__='apianalytics'    
-    id=Column(String(350), primary_key=True)
-    request_id=Column(String(250), nullable=False)
-    requestType=Column(String(250), nullable=False)
-    requestTime=Column(String(50), nullable=False)
-    payload=Column(String(400))
-    contentType=Column(String(250))
-    ip_address=Column(String(250), nullable=False)
-    os_type=Column(String(250), nullable=False)
-    userAgent=Column(String(250), nullable=False)
-    
+    __tablename__ = 'apianalytics'
+    id = Column(String(36), primary_key=True)  
+    R_id = Column(String(350),  nullable=False)  
+    request_id = Column(String(250), nullable=False)
+    requestType = Column(String(250), nullable=False)
+    requestTime = Column(String(50), nullable=False)
+    payload = Column(String(400))
+    contentType = Column(String(250))
+    ip_address = Column(String(250), nullable=False)
+    os_type = Column(String(250), nullable=False)
+    userAgent = Column(String(250), nullable=False)
  
 # uri="'postgresql://username:password@localhost/dbname'" 
 #if you want to use the postgresql , put your credentials and use the above url ,
