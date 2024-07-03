@@ -1,0 +1,152 @@
+
+
+
+.App {
+  text-align: center;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.table_data {
+  width: 100%;
+  max-width: 90%;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.loading-circle {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #4CAF50;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  background: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.chart-wrapper h2 {
+  margin-bottom: 10px;
+}
+
+.visualization {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+  padding-bottom: 120px;
+}
+
+.bar, .pie {
+  width: 100%;
+  height: 300px;
+}
+
+@media (max-width: 1200px) {
+  .visualization {
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+   
+  .pie{
+    padding-bottom: 100px;
+  }
+  .chart-wrapper {
+    max-width: 100%;
+    margin-bottom: 20px;  }
+    
+    }
+  
+
+
+
+
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters input {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 30%;
+  min-width: 150px;
+}
+
+.refresh-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.refresh-button:hover {
+  background-color: #45a049;
+}
+
