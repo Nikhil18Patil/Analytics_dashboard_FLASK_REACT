@@ -1,152 +1,112 @@
-
-
-
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
 }
 
-.dashboard {
+.sideNav {
+  padding: 20px;
+  width: auto;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
+  
+   /* Make it grow and fill the available height */
 }
 
-.table_data {
-  width: 100%;
-  max-width: 90%;
-  margin: 20px auto;
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-
-.spinner {
-  display: flex;
+.dashBoardBody {
+  background-color: rgb(246, 255, 255);
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100px;
-}
-
-.loading-circle {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #4CAF50;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.charts-container {
+  height: fit-content;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
+  flex: 1; /* Make it grow and fill the available height */
 }
 
-.chart-wrapper {
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  background: #f9f9f9;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.chart-wrapper h2 {
-  margin-bottom: 10px;
-}
-
-.visualization {
+.navHeader{
+  height: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;  
+  justify-content:first baseline;
+  align-items: center;
+  font-size: large;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-bottom: 700px;
+  
+}
+
+.sideManue{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.i_t{
+  width: 100%;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px; 
+  margin: 5px;
   flex-direction: row;
   align-items: center;
-  width: 70%;
-  padding-bottom: 120px;
-}
-
-.bar, .pie {
-  width: 100%;
-  height: 300px;
-}
-
-@media (max-width: 1200px) {
-  .visualization {
-    flex-direction: column;
-    width: 70%;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-  }
-   
-  .pie{
-    padding-bottom: 100px;
-  }
-  .chart-wrapper {
-    max-width: 100%;
-    margin-bottom: 20px;  }
-    
-    }
-  
-
-
-
-
-
-.filters {
-  display: flex;
   justify-content: space-between;
+}
+.menu-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.navFotter{
+  
+  height: auto;
+  display: flex;
+  flex-direction: column;  
+  justify-content:first baseline;
+  align-items: center;
+  font-size: large;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.a{
+  padding-top: 35px;
+  padding-bottom: 35px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
+  border-radius: 30px;
+  text-align: center;
+  font-size: large;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
+  background-color: blue;
 }
 
-.filters input {
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 30%;
-  min-width: 150px;
+.b{
+  padding: 5px;
+   margin-bottom: 5px;
+   text-align: center;
+   font-size: large;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
 }
 
-.refresh-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
 
-.refresh-button:hover {
-  background-color: #45a049;
-}
+
+
+
+
+
+
+
 

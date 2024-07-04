@@ -22,17 +22,44 @@ def get_api_data():
         data:[{data of api hit}]
     }"""
     try:
-        Session=sessionmaker(bind=engine)
+        Session = sessionmaker(bind=engine)
         session = Session()
-        data_l=[]
-        data=session.query(Apianalytics).all()
+        data_l = []
+        data = session.query(Apianalytics).all()
+        fail_request = 0
+        total_response_time = 0
+
         for i in data:
-            data_l.append({"id":i.R_id, "request_id":i.request_id , "requestType":i.requestType,"requestTime":i.requestTime,"payload":i.payload ,"contentType":i.contentType ,"ip_address":i.ip_address ,"os_type":i.os_type , "userAgent":i.userAgent })
-        session.close()   
-        return jsonify(data=data_l), 200
+            response_time = float(i.response_time)
+            data_l.append({
+                "id": i.R_id,
+                "request_id": i.request_id,
+                "requestType": i.requestType,
+                "requestTime": i.requestTime,
+                "payload": i.payload,
+                "contentType": i.contentType,
+                "ip_address": i.ip_address,
+                "os_type": i.os_type,
+                "userAgent": i.userAgent,
+                "response_time": response_time,
+                "request_status": i.request_status
+            })
+            if i.request_status[0] in ['4', '5']:
+                fail_request += 1
+            total_response_time += response_time
+
+        session.close()
+        total_request = len(data_l)
+        avg_response_time = total_response_time / total_request if total_request > 0 else 0
+        avg_response_time = round(avg_response_time, 3)
+        return jsonify(
+            data=data_l,
+            total_request=total_request,
+            fail_request=fail_request,
+            avg_response_time=avg_response_time
+        ), 200
     except Exception as e:
         return jsonify(error=f'{e}'), 500
-    
 
 def add_api_hit(request, requestType, requestId, response_time , request_status ,body=""):
     Session = sessionmaker(bind=engine)

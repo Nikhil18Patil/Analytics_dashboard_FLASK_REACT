@@ -1,0 +1,261 @@
+
+.Analytics_bord{
+    display: flex;
+    width: 80%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-top: 40px;
+    margin-left: 40px;
+    
+}
+
+.upper{
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container {
+  position: relative;
+  width: 300px; /* Adjust width as needed */
+  margin: 20px;
+}
+.search-container input[type="text"] {
+  width: 100%;
+  padding: 10px 30px 10px 10px; /* Adjust padding to accommodate the search icon */
+  border-radius: 20px; /* Adjust border-radius for curved corners */
+  border: 1px solid #ccc; /* Border style */
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.search-container .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999; /* Color of the search icon */
+}
+
+
+
+/* this is for count */
+
+.request_counts{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.req_count{
+  height: auto;
+  width: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;    
+}
+
+.ii_t{ 
+ 
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: center;   
+  flex-wrap: wrap; 
+  align-items: center;
+}
+
+.menuu-icon {
+  width: 60px;
+  height: 60px;    
+} 
+
+.req_count p {
+  margin: 0;
+  font-size: 14px;
+   
+}
+
+.req_count h1 {
+  margin: 0;
+  font-size: 30px;
+   /* Adjust the color as needed */
+}
+
+
+
+
+
+
+
+
+/* this is for charts */
+.charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+  flex-wrap: wrap;
+   /* Ensure wrapping for responsiveness */
+}
+
+.Bar_chart, .Pie_chart {
+  height: 400px;
+  border-radius: 20px;
+  background-color: white;
+  padding: 20px; /* Adjusted padding for consistency */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Ensure flexibility */
+  margin: 10px; /* Spacing between charts */
+  flex-wrap: wrap;
+  min-width: 300px; /* Minimum width to prevent collapsing */
+  max-width: 100%; /* Ensure it doesn't exceed container width */
+}
+
+.bar-chart, .pie-chart {
+  
+  width: 100%;
+  height: 250px;
+}
+
+.bar-chart select {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .charts {
+    flex-direction: column;
+  }
+
+  .Bar_chart, .Pie_chart{
+    height: 600px;
+  }
+  
+
+  .Bar_chart, .Pie_chart {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+
+/* this is for request table */  
+.requestTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  margin-bottom: 50px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.filters input {
+  width: 30%;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.request-tag {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+}
+
+.search-button {
+  padding: 8px 16px;
+  margin-right: 10px;
+}
+
+.days-filter {
+  padding: 8px;
+}
+
+.table-container {
+  max-height: 400px; /* Set a max height for the table container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: auto; /* Enable horizontal scrolling for wide tables */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: normal; /* Allow text wrapping */
+  word-wrap: break-word; /* Break long words */
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters input {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-controls {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}
