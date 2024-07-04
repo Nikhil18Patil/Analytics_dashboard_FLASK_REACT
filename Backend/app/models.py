@@ -31,6 +31,8 @@ class Apianalytics(Base):
     ip_address = Column(String(250), nullable=False)
     os_type = Column(String(250), nullable=False)
     userAgent = Column(String(250), nullable=False)
+    response_time = Column(Float, nullable=False)  # Added field for response time
+    request_status = Column(String(50), nullable=False)
  
 # uri="'postgresql://username:password@localhost/dbname'" 
 #if you want to use the postgresql , put your credentials and use the above url ,

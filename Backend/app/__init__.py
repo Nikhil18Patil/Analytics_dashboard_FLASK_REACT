@@ -15,6 +15,11 @@ def create_app():
     def before_request():
         g.start_time = time.time()
         
+    @app.after_request
+    def after_request(response):
+        response_time = round(time.time() - g.start_time, 6)
+        request_status = response.status
+        
         request_id_map = {
             'POST': 'add-item',
             'GET': 'get-item',
@@ -30,10 +35,19 @@ def create_app():
         body = request.get_json(silent=True) or ""
         
         try:
-            add_api_hit(request, request_type, request_id, body)
-            print("Before Request: Analytics data has been logged.")
+            add_api_hit(request, request_type, request_id, response_time, request_status ,body)
+            print("After Request: Analytics data has been logged.")
         finally:
-            print("Done")
+            print(f"After Request: Response Time = {response_time} seconds, Status = {request_status}")
+        
+        
+        return response
+    
+    @app.route('/')
+    def hello():
+        return jsonify(message="Hey, the server is running, happy ^_^")
+    
+    return app
         
     @app.route('/')
     def hello():

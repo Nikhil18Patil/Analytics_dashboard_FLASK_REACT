@@ -34,7 +34,7 @@ def get_api_data():
         return jsonify(error=f'{e}'), 500
     
 
-def add_api_hit(request, requestType, requestId, body=""):
+def add_api_hit(request, requestType, requestId, response_time , request_status ,body=""):
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -68,7 +68,10 @@ def add_api_hit(request, requestType, requestId, body=""):
             contentType=content_type,
             ip_address=ip_address,
             os_type=os_type,
-            userAgent=user_agent_str
+            userAgent=user_agent_str,
+            response_time=response_time,
+            request_status=request_status
+            
         )
         
         session.add(analytics_data)
