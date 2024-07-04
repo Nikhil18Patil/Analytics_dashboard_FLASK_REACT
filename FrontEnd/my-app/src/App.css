@@ -54,6 +54,10 @@
   align-items: center;
   justify-content: space-between;
 }
+.i_t.active {
+  background-color: blue;
+  color: white; /* Optional: change text color to white for better visibility */
+}
 .menu-icon {
   width: 25px;
   height: 25px;
